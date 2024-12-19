@@ -1,0 +1,25 @@
+Prefix pipelines/Seurat/
+Plugin MitochondrialRNA inputfile /biorg/data/RNA/filtered_gene_bc_matrices/hg19 outputfile mitochondria
+Plugin VlnPlot inputfile parameters/parameters.vlnplot.txt outputfile vlnplot.pdf
+Plugin FeatureScatter inputfile parameters/parameters.featureplot1.txt outputfile featureplot1.pdf
+Plugin FeatureScatter inputfile parameters/parameters.featureplot2.txt outputfile featureplot2.pdf
+Plugin MitochondriaFilter inputfile parameters/parameters.mitofilter.txt outputfile subset.rds
+Plugin Log1P inputfile subset.rds outputfile normalized.rds
+Plugin VST inputfile parameters/parameters.vst.txt outputfile VST.rds
+Plugin Head inputfile parameters/parameters.head.txt outputfile Top10.rds
+Plugin VariableFeaturePlot inputfile parameters/parameters.vfp.txt outputfile VarFeat.pdf
+Plugin ScaleCenter inputfile VST.rds outputfile ScaleCenter.rds
+Plugin IRLBA inputfile ScaleCenter.rds outputfile IRLBA.rds
+Plugin VizDimLoadings inputfile IRLBA.rds outputfile VizDimLoadings.pdf
+Plugin DimPlot inputfile IRLBA.rds outputfile DimPlot.pdf
+Plugin DimHeatmap inputfile IRLBA.rds outputfile DimHeatmap.pdf
+Plugin ElbowPlot inputfile IRLBA.rds outputfile Elbow.pdf
+Plugin SharedNN inputfile IRLBA.rds outputfile SNN.rds
+Plugin Waltman inputfile parameters/parameters.waltman.txt outputfile Waltman.rds
+Plugin UWOT inputfile Waltman.rds outputfile UWOT.rds
+Plugin FindAllMarkers inputfile UWOT.rds outputfile Markers.rds
+Plugin VlnPlot inputfile parameters/parameters.vlnplot2.txt outputfile vlnplot2.pdf
+Plugin VlnPlot inputfile parameters/parameters.vlnplot3.txt outputfile vlnplot3.pdf
+Plugin ReductionPlot inputfile parameters/parameters.reductionplot.txt outputfile reductionplot.pdf
+Plugin SingleCellHeatmap inputfile parameters/parameters.singlecellheatmap.txt outputfile scheatmap.pdf
+Plugin ReductionScatter inputfile parameters/parameters.reductionscatter.txt outputfile reductionscatter.pdf
